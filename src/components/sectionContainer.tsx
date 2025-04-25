@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
 
-interface SectionContainerProps {
-    children: ReactNode,
-    class: string,
+interface Props {
+    children?: ReactNode,
+    className: string,
     id: string
 }
-const SectionContainer = ({ children }: SectionContainerProps) => {
+const SectionContainer = ({ children, className, id }: Props) => {
     return (
-        <section>
+        <section className={`max-w-4xl mx-auto py-2`}>
             {children}
         </section>
     );
