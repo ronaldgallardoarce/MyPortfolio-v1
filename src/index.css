@@ -1,8 +1,43 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background-dark: #001418;
+  --color-background-light: #f0faff;
+}
+
 :root {
   color-scheme: ligth dark;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Onest Variable', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+@layer utilities {
+  .border-glow {
+    position: relative;
+    z-index: 0;
+  }
+
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from 0deg, #7f5af0, #0f172a, #7f5af0);
+    animation: rotate-glow 4s linear infinite;
+    mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+  }
+
+  @keyframes rotate-glow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 /* :root {
