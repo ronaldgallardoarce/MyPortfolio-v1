@@ -1,7 +1,8 @@
 // import { ReactNode } from "react";
 import { Outlet } from "react-router";
-import ThemeGradientBackground from "../components/themeGradientBackground";
 import Header from "../components/header";
+import ThemeGradientBackground from "../components/ui/themeGradientBackground";
+import Footer from "../components/footer";
 
 // interface MainLayoutProps {
 //     children: ReactNode
@@ -11,8 +12,9 @@ const MainLayout = () => {
     return (
         <>
             <ThemeGradientBackground />
-            <Header/>
+            <Header />
             <Outlet />
+            {/* <Footer /> */}
         </>
     );
 }
