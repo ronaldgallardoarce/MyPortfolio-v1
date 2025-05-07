@@ -1,5 +1,4 @@
 import Hero from "../components/hero";
-import NavigationBar from "../components/navbar";
 import SectionContainer from "../components/ui/sectionContainer";
 import SectionTitle from "../components/ui/sectionTitle";
 
