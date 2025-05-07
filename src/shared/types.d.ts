@@ -4,3 +4,9 @@ export interface NavItem {
     label: string,
     url: string
 }
+
+export interface GralProps{
+    id?:string,
+    className: string,
+
+}
