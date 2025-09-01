@@ -14,6 +14,23 @@
       (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
     );
   </script> -->
+  <script>
+    (function () {
+      try {
+        const stored = JSON.parse(localStorage.getItem("theme") || "{}");
+        const themeValue = stored?.state?.theme;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (themeValue === "dark" || (themeValue === "system" && systemDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
 </head>
 
 <body class="relative text-gray-600 dark:text-white text-sm  sm:text-base">

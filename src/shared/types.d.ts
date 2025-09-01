@@ -1,12 +1,14 @@
-export interface NavItem {
-    id:number,
-    title: string,
-    label: string,
-    url: string
+interface NavItem {
+    id: number | string
+    icon: React.ReactNode
+    label: string
+    href: string
+    gradient: string
+    iconColor: string
 }
 
-export interface GralProps{
-    id?:string,
+export interface GralProps {
+    id?: string,
     className: string,
 
 }

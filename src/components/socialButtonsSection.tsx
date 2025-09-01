@@ -48,7 +48,8 @@ const SocialButtonsSection = () => {
         },
     ]
     return (
-        <nav className="flex flex-row gap-4 items-center justify-center sm:justify-start 
+        <nav className="flex flex-wrap flex-row gap-4 
+        items-center justify-center sm:justify-start 
         my-6">
             {
                 items.map((item) => {

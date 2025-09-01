@@ -1,16 +1,23 @@
 import SocialButtonsSection from "./socialButtonsSection";
 import Badge from "./ui/badge";
+import { MorphingText } from "./ui/morphing-text";
+import StyledContainer from "./ui/styledContainer";
+const texts = [
+    "Desarrollador Full Stack",
+    "Ingeniero de Sistemas",
+];
 
 const Hero = () => {
     return (
         <>
-            <section id="inicio" className="max-w-2xl py-32">
+            <section id="inicio" className="max-w-2xl mt-20">
                 <div className="flex flex-col sm:flex-row items-center gap-5 mb-6">
-                    <img
-                        className="rounded-full sm:rounded-3xl 
-                        size-40"
-                        alt="Ronald Gallardo"
-                        src="https://img.freepik.com/premium-photo/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_1029476-294679.jpg" />
+                    <StyledContainer className="rounded-full sm:rounded-3xl">
+                        <img
+                            className="size-32"
+                            alt="Ronald Gallardo"
+                            src="https://img.freepik.com/premium-photo/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_1029476-294679.jpg" />
+                    </StyledContainer>
                     <div className="relative flex flex-col items-center sm:items-start -mt-3 sm:mt-0">
                         <div className="w-max h-max relative overflow-hidden">
                             <a
@@ -18,16 +25,17 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Badge className="text-xs sm:text-sm font-extralight">Disponible para trabajar</Badge>
+                                <Badge className="text-xs font-medium">Disponible para trabajar</Badge>
                             </a>
                         </div>
-                        <h1 className="text-2xl sm:text-4xl font-bold mt-4  ">
+                        <h1 className="text-2xl sm:text-3xl font-bold mt-4  ">
                             Ronald Gallardo Arce
                         </h1>
-                        <h2 className="text-lg sm:text-xl font-semibold
-                         fill-indigo-500 
-                         drop-shadow-lg drop-shadow-indigo-500/50">
-                            Desarrollador <span className="font-black bg-gradient-to-r from-[#bac0f1] to-[#2b6d7a] bg-clip-text text-transparent">full stack</span>
+                        <h2 className="flex w-full text-center sm:text-start mb-4 sm:mb-0">
+                            <MorphingText
+                                className="text-lg font-bold text-gray-900 dark:text-gray-200"
+                                texts={texts} />
+                            {/* Desarrollador <span className="font-black bg-gradient-to-r from-[#bac0f1] to-[#2b6d7a] bg-clip-text text-transparent">full stack</span> */}
                         </h2>
                     </div>
                 </div>

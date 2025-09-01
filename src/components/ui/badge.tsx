@@ -1,12 +1,16 @@
 import { FC, ReactNode } from "react";
 import { GralProps } from "../../shared/types";
 import { SparklesCore } from "./sparkles";
+import { cn } from "../../lib/utils";
 interface Props extends GralProps {
     children?: ReactNode,
 }
 const Badge: FC<Props> = ({ children, className }) => {
     return (
-        <span className={`${className} bg-[#1f1f1f]/ relative flex flex-row items-center gap-2 size-max py-1.5 px-4 rounded-full overflow-hidden border border-[#9a9a9a]`}>
+        <span className={cn(
+            "relative flex flex-row items-center gap-2 size-max py-1 px-2 rounded-md overflow-hidden border border-gray-200 dark:border-border",
+            className
+        )}>
 
             <SparklesCore
                 minSize={0.2}
