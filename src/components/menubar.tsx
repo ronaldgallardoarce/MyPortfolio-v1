@@ -82,8 +82,8 @@ const sharedTransition = {
 }
 
 export function MenuBar() {
-    const savedTheme = localStorage.getItem('theme')
-    const isDarkTheme = savedTheme === "dark"
+    // const savedTheme = localStorage.getItem('theme')
+    // const isDarkTheme = savedTheme === "dark"
     return (
         <motion.nav
             className="p-2 rounded-2xl bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-lg border border-border/40 shadow-lg relative overflow-hidden"
@@ -92,15 +92,12 @@ export function MenuBar() {
         >
             <motion.div
                 className={`absolute -inset-2 bg-gradient-radial from-transparent 
-            ${isDarkTheme
-                        ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-red-400/30 via-90%"
-                        : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-red-400/20 via-90%"
-                    } 
+            
         to-transparent rounded-3xl z-0 pointer-events-none`}
                 variants={navGlowVariants}
             />
             <ul className="flex items-center gap-2 relative z-10">
-                {menuItems.map((item, index) => (
+                {menuItems.map((item) => (
                     <motion.li key={item.label} className="relative">
                         <motion.div
                             className="block rounded-xl overflow-visible group relative"
