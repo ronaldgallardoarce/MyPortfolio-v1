@@ -1,11 +1,11 @@
-"use client";
-import { useId, } from "react";
+import { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "../../lib/utils";
 import { motion, useAnimation } from "motion/react";
+import { useResolvedTheme } from "../../hooks/useResolvedTheme";
 
 type ParticlesProps = {
     id?: string;
@@ -32,27 +32,14 @@ export const SparklesCore = (props: ParticlesProps) => {
         particleDensity,
     } = props;
 
-    const [isDarkTheme, setIsDarkTheme] = useState(false)
-    useEffect(() => {
-        const theme = localStorage.getItem("theme")
-        if (!theme) {
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            setIsDarkTheme(mediaQuery.matches);
+    const {
+        theme: resolvedTheme
+    } = useResolvedTheme();
 
-            // Listener para detectar cambios en la preferencia del sistema
-            const handleChange = (e: MediaQueryListEvent) => {
-                setIsDarkTheme(e.matches);
-            };
-            mediaQuery.addEventListener('change', handleChange);
-            return () => mediaQuery.removeEventListener('change', handleChange);
-        }
-        else {
-            setIsDarkTheme(theme === 'dark')
-        }
-    }, [])
-
-
+    const controls = useAnimation();
+    const generatedId = useId();
     const [init, setInit] = useState(false);
+
     useEffect(() => {
         initParticlesEngine(async (engine) => {
             await loadSlim(engine);
@@ -60,7 +47,6 @@ export const SparklesCore = (props: ParticlesProps) => {
             setInit(true);
         });
     }, []);
-    const controls = useAnimation();
 
     const particlesLoaded = async (container?: Container) => {
         if (container) {
@@ -73,7 +59,6 @@ export const SparklesCore = (props: ParticlesProps) => {
         }
     };
 
-    const generatedId = useId();
     return (
         <motion.div animate={controls} className={cn("opacity-0", className)}>
             {init && (
@@ -145,7 +130,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                                 },
                             },
                             color: {
-                                value: isDarkTheme ? particleColor : particleLightColor || "#ffffff",
+                                value: resolvedTheme === "dark" ? particleColor : particleLightColor,
                                 animation: {
                                     h: {
                                         count: 0,
