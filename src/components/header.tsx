@@ -55,7 +55,7 @@ const navItems: NavItem[] = [
 ]
 const Header = () => {
     return (
-        <header className="flex items-center justify-center w-full sticky top-4 z-10 mb-5">
+        <header className="flex items-center justify-center w-full fixed sm:sticky bottom-4 sm:top-4 z-10 sm:mb-5">
             <StyledContainer className="dark:bg-background/50">
                 <motion.nav className="flex gap-3 sm:gap-8 items-center px-2 sm:px-10 py-1 overflow-hidden"
                     initial="initial"

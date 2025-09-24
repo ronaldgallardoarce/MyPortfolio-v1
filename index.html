@@ -5,30 +5,57 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="./src/assets/codeIcon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porfolio de Ronald Gallardo - Desarollador web</title>
-  <!-- <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-  </script> -->
+  <title>Porfolio de Ronald Gallardo - Desarrollador web</title>
   <script>
-    (function () {
-      try {
-        const stored = JSON.parse(localStorage.getItem("theme") || "{}");
-        const themeValue = stored?.state?.theme;
-        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        if (themeValue === "dark" || (themeValue === "system" && systemDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
+    (function() {
+      function getZustandTheme() {
+        try {
+          const stored = localStorage.getItem("theme");
+          if (!stored) return null;
+          
+          // Zustand con persist guarda en formato JSON
+          const parsed = JSON.parse(stored);
+          
+          // Diferentes formatos posibles de Zustand
+          return parsed?.state?.theme || parsed?.theme || null;
+        } catch (e) {
+          return null;
         }
-      } catch (e) {
-        console.error(e);
       }
+      
+      function applyTheme() {
+        const storedTheme = getZustandTheme();
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        let shouldBeDark = false;
+        
+        if (storedTheme === "dark") {
+          shouldBeDark = true;
+        } else if (storedTheme === "system" || !storedTheme) {
+          shouldBeDark = systemDark;
+        }
+        
+        // Aplicar clase y color-scheme inmediatamente
+        const root = document.documentElement;
+        if (shouldBeDark) {
+          root.classList.add("dark");
+          root.style.colorScheme = "dark";
+        } else {
+          root.classList.remove("dark");
+          root.style.colorScheme = "light";
+        }
+      }
+      
+      // Aplicar tema inmediatamente
+      applyTheme();
+      
+      // Escuchar cambios del sistema para tema 'system'
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function() {
+        const storedTheme = getZustandTheme();
+        if (!storedTheme || storedTheme === "system") {
+          applyTheme();
+        }
+      });
     })();
   </script>
 </head>

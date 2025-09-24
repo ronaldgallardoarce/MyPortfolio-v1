@@ -3,14 +3,14 @@ import './App.css'
 import { Route } from 'react-router'
 import Home from './pages/home'
 import MainLayout from './layout/layout'
-import { useResolvedTheme } from './hooks/useResolvedTheme'
+import { useTheme } from './hooks/useResolvedTheme'
 
 function App() {
   const {
-    resolved
-  } = useResolvedTheme()
+    resolvedTheme
+  } = useTheme()
 
-  if (!resolved) return null;
+  if (!resolvedTheme) return null;
 
   return (
     <Routes>

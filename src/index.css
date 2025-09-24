@@ -1,143 +1,121 @@
 @import "tailwindcss";
 
+/* -----------------------------
+   Configuración para clases dark:
+------------------------------ */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* -----------------------------
    Variables para modo claro (default)
 ------------------------------ */
-:root {
+html {
   color-scheme: light dark;
   font-family: 'Onest Variable', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
 
-  --radius: .625rem;
-
-  --background: oklch(1 0 0);
-  --foreground: oklch(.145 0 0);
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(.145 0 0);
-
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(.145 0 0);
-
-  --primary: oklch(.205 0 0);
-  --primary-foreground: oklch(.985 0 0);
-
-  --secondary: oklch(.97 0 0);
-  --secondary-foreground: oklch(.205 0 0);
-
-  --muted: oklch(.97 0 0);
-  --muted-foreground: oklch(.556 0 0);
-
-  --accent: oklch(.97 0 0);
-  --accent-foreground: oklch(.205 0 0);
-
-  --destructive: oklch(.577 .245 27.325);
-  --destructive-foreground: oklch(.985 0 0);
-
-  --border: oklch(.922 0 0);
-  --input: oklch(.922 0 0);
-  --ring: oklch(.708 0 0);
-
-  --chart-1: oklch(.646 .222 41.116);
-  --chart-2: oklch(.6 .118 184.704);
-  --chart-3: oklch(.398 .07 227.392);
-  --chart-4: oklch(.828 .189 84.429);
-  --chart-5: oklch(.769 .188 70.08);
-
-  --sidebar: oklch(.985 0 0);
-  --sidebar-foreground: oklch(.145 0 0);
-  --sidebar-primary: oklch(.205 0 0);
-  --sidebar-primary-foreground: oklch(.985 0 0);
-  --sidebar-accent: oklch(.97 0 0);
-  --sidebar-accent-foreground: oklch(.205 0 0);
-  --sidebar-border: oklch(.922 0 0);
-  --sidebar-ring: oklch(.708 0 0);
-
-  --color-1: oklch(66.2% .225 25.9);
-  --color-2: oklch(60.4% .26 302);
-  --color-3: oklch(69.6% .165 251);
-  --color-4: oklch(80.2% .134 225);
-  --color-5: oklch(90.7% .231 133);
+/* Aplicar clase dark cuando corresponda */
+html.dark {
+  color-scheme: dark;
 }
 
 /* -----------------------------
-   Variables para modo oscuro
+   Variables CSS con light-dark()
 ------------------------------ */
-.dark {
-  --background: oklch(.145 0 0);
-  --foreground: oklch(.985 0 0);
+:root {
+  /* Radius */
+  --radius: 0.625rem;
 
-  --card: oklch(.205 0 0);
-  --card-foreground: oklch(.985 0 0);
+  /* Variables de header usando light-dark() */
+  --background-header: rgba(1, 1, 150, 1);
+  --header-primary: light-dark(rgba(1, 1, 150, 1), rgb(25, 90, 242));
+  --header-primary-light: light-dark(rgba(1, 1, 150, 1), #78fcd6);
 
-  --popover: oklch(.205 0 0);
-  --popover-foreground: oklch(.985 0 0);
+  /* Variables principales del sistema usando light-dark() */
+  --background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
+  --foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
 
-  --primary: oklch(.922 0 0);
-  --primary-foreground: oklch(.205 0 0);
+  --card: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+  --card-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
 
-  --secondary: oklch(.269 0 0);
-  --secondary-foreground: oklch(.985 0 0);
+  --popover: light-dark(oklch(1 0 0), oklch(0.205 0 0));
+  --popover-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
 
-  --muted: oklch(.269 0 0);
-  --muted-foreground: oklch(.708 0 0);
+  --primary: light-dark(oklch(0.205 0 0), oklch(0.922 0 0));
+  --primary-foreground: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
 
-  --accent: oklch(.269 0 0);
-  --accent-foreground: oklch(.985 0 0);
+  --secondary: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --secondary-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
 
-  --destructive: oklch(.704 .191 22.216);
-  --destructive-foreground: oklch(.985 0 0);
+  --muted: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --muted-foreground: light-dark(oklch(0.556 0 0), oklch(0.708 0 0));
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(.556 0 0);
+  --accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
 
-  --chart-1: oklch(.488 .243 264.376);
-  --chart-2: oklch(.696 .17 162.48);
-  --chart-3: oklch(.769 .188 70.08);
-  --chart-4: oklch(.627 .265 303.9);
-  --chart-5: oklch(.645 .246 16.439);
+  --destructive: light-dark(oklch(0.577 0.245 27.325), oklch(0.704 0.191 22.216));
+  --destructive-foreground: oklch(0.985 0 0);
 
-  --sidebar: oklch(.205 0 0);
-  --sidebar-foreground: oklch(.985 0 0);
-  --sidebar-primary: oklch(.488 .243 264.376);
-  --sidebar-primary-foreground: oklch(.985 0 0);
-  --sidebar-accent: oklch(.269 0 0);
-  --sidebar-accent-foreground: oklch(.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(.556 0 0);
+  --border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
+  --input: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 15%));
+  --ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
+
+  /* Variables de gráficos usando light-dark() */
+  --chart-1: light-dark(oklch(0.646 0.222 41.116), oklch(0.488 0.243 264.376));
+  --chart-2: light-dark(oklch(0.6 0.118 184.704), oklch(0.696 0.17 162.48));
+  --chart-3: light-dark(oklch(0.398 0.07 227.392), oklch(0.769 0.188 70.08));
+  --chart-4: light-dark(oklch(0.828 0.189 84.429), oklch(0.627 0.265 303.9));
+  --chart-5: light-dark(oklch(0.769 0.188 70.08), oklch(0.645 0.246 16.439));
+
+  /* Variables del sidebar usando light-dark() */
+  --sidebar: light-dark(oklch(0.985 0 0), oklch(0.205 0 0));
+  --sidebar-foreground: light-dark(oklch(0.145 0 0), oklch(0.985 0 0));
+  --sidebar-primary: light-dark(oklch(0.205 0 0), oklch(0.488 0.243 264.376));
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: light-dark(oklch(0.97 0 0), oklch(0.269 0 0));
+  --sidebar-accent-foreground: light-dark(oklch(0.205 0 0), oklch(0.985 0 0));
+  --sidebar-border: light-dark(oklch(0.922 0 0), oklch(1 0 0 / 10%));
+  --sidebar-ring: light-dark(oklch(0.708 0 0), oklch(0.556 0 0));
+
+  /* Colores personalizados (estos no cambian entre temas) */
+  --color-1: oklch(66.2% 0.225 25.9);
+  --color-2: oklch(60.4% 0.26 302);
+  --color-3: oklch(69.6% 0.165 251);
+  --color-4: oklch(80.2% 0.134 225);
+  --color-5: oklch(90.7% 0.231 133);
 }
 
+/* -----------------------------
+   Configuración de Tailwind v4.0
+------------------------------ */
 @theme {
+  /* Mapear variables CSS a colores de Tailwind */
   --color-background-dark: #161616;
   --color-background-light: #f0faff;
 
-  /* Colores del sistema */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -166,27 +144,16 @@
   --color-color-4: var(--color-4);
   --color-color-5: var(--color-5);
 
+  /* Variables de header */
+  --color-background-header: var(--background-header);
+  --color-header-primary: var(--header-primary);
+  --color-header-primary-light: var(--header-primary-light);
+
   /* Border radius */
-  /* --radius-default: var(--radius);
-  --radius-sm: calc(var(--radius) - 2px);
-  --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 2px);
-  --radius-xl: calc(var(--radius) + 4px); */
-
-  /* Animaciones */
-  /* --animate-duration-fast: 150ms;
-  --animate-duration-normal: 300ms;
-  --animate-duration-slow: 500ms; */
-
-  /* Sombras */
-  /* --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.05);
-  --shadow-base: 0 1px 3px 0 oklch(0 0 0 / 0.1), 0 1px 2px -1px oklch(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.1), 0 2px 4px -2px oklch(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -4px oklch(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.1), 0 8px 10px -6px oklch(0 0 0 / 0.1); */
+  --radius-default: var(--radius);
 }
 
-@layer utilities {
+/* @layer utilities {
   .border-glow {
     position: relative;
     z-index: 0;
@@ -209,11 +176,12 @@
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
   }
-}
+} */
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
