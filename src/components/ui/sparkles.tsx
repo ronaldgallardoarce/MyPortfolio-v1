@@ -5,7 +5,7 @@ import type { Container, SingleOrMultiple } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from "../../lib/utils";
 import { motion, useAnimation } from "motion/react";
-import { useResolvedTheme } from "../../hooks/useResolvedTheme";
+import { useTheme } from "../../hooks/useResolvedTheme";
 
 type ParticlesProps = {
     id?: string;
@@ -33,8 +33,8 @@ export const SparklesCore = (props: ParticlesProps) => {
     } = props;
 
     const {
-        theme: resolvedTheme
-    } = useResolvedTheme();
+        resolvedTheme
+    } = useTheme();
 
     const controls = useAnimation();
     const generatedId = useId();
