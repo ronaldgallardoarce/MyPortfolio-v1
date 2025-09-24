@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
-import { useThemeStore } from "../store/themeStore";
+import { useEffect } from 'react'
+import { applyThemeToDOM, useResolvedTheme, useThemeStore } from '../store/themeStore'
 
-export function useResolvedTheme() {
-  const { theme } = useThemeStore();
-  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
-  const [resolved, setResolved] = useState(false);
+export const useTheme = () => {
+  const { theme, setTheme } = useThemeStore()
+  const resolvedTheme = useResolvedTheme()
 
+  // Sincronizar con cambios del sistema
   useEffect(() => {
-    if (theme === "system") {
-      const mq = window.matchMedia("(prefers-color-scheme: dark)");
-      const update = () => setResolvedTheme(mq.matches ? "dark" : "light");
-      update();
-      mq.addEventListener("change", update);
-      setResolved(true);
-      return () => mq.removeEventListener("change", update);
-    } else {
-      setResolvedTheme(theme);
-      setResolved(true);
-    }
-  }, [theme]);
+    if (theme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
-  return { resolved, theme: resolvedTheme };
+      const handleChange = () => {
+        applyThemeToDOM(theme)
+      }
+
+      mediaQuery.addEventListener('change', handleChange)
+      return () => mediaQuery.removeEventListener('change', handleChange)
+    }
+  }, [theme])
+
+  return {
+    theme,
+    resolvedTheme,
+    setTheme,
+  }
 }

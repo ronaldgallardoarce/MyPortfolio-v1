@@ -14,9 +14,10 @@ const Hero = () => {
                 <div className="flex flex-col sm:flex-row items-center gap-5 mb-6">
                     <StyledContainer className="rounded-full sm:rounded-3xl">
                         <img
-                            className="size-32"
+                            className="size-28 object-cover"
                             alt="Ronald Gallardo"
-                            src="https://img.freepik.com/premium-photo/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_1029476-294679.jpg" />
+                            src="https://img.freepik.com/premium-photo/young-smiling-man-adam-avatar-3d-vector-people-character-illustration-cartoon-minimal-style_1029476-294679.jpg"
+                        />
                     </StyledContainer>
                     <div className="relative flex flex-col items-center sm:items-start -mt-3 sm:mt-0">
                         <div className="w-max h-max relative overflow-hidden">
@@ -28,15 +29,15 @@ const Hero = () => {
                                 <Badge className="text-xs font-medium">Disponible para trabajar</Badge>
                             </a>
                         </div>
-                        <h1 className="text-2xl sm:text-3xl font-bold mt-4  ">
+                        <h1 className="text-2xl sm:text-3xl font-bold mt-2  ">
                             Ronald Gallardo Arce
                         </h1>
-                        <h2 className="flex w-full text-center sm:text-start mb-4 sm:mb-0">
+                        <div className="flex relative w-full text-center sm:text-start mb-4 sm:mb-0 h-8">
                             <MorphingText
                                 className="text-lg font-bold text-gray-900 dark:text-gray-200"
                                 texts={texts} />
                             {/* Desarrollador <span className="font-black bg-gradient-to-r from-[#bac0f1] to-[#2b6d7a] bg-clip-text text-transparent">full stack</span> */}
-                        </h2>
+                        </div>
                     </div>
                 </div>
                 <p className="mb-2 text-center sm:text-start">
