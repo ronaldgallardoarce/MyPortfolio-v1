@@ -45,7 +45,7 @@ const BentoCard = ({
     <div
         key={name}
         className={cn(
-            "group relative flex overflow-hidden rounded-2xl outline-1 border border-[hsla(0,0%,100%,.1)] backdrop-blur-xl",
+            "group relative flex overflow-hidden rounded-2xl outline-1 border border-[hsla(0,0%,100%,.1)] backdrop-blur-sm",
             // light styles
             "bg-background/20 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] outline-zinc-200",
             // dark styles
