@@ -26,9 +26,8 @@ html.dark {
   --radius: 0.625rem;
 
   /* Variables de header usando light-dark() */
-  --background-header: rgba(1, 1, 150, 1);
-  --header-primary: light-dark(rgba(1, 1, 150, 1), rgb(25, 90, 242));
-  --header-primary-light: light-dark(rgba(1, 1, 150, 1), #78fcd6);
+  --header-primary: light-dark(#AA846E, #195af2);
+  --header-primary-light: light-dark(#F4E1D2, #6BF4F3);
 
   /* Variables principales del sistema usando light-dark() */
   --background: light-dark(oklch(1 0 0), oklch(0.145 0 0));
@@ -145,7 +144,6 @@ html.dark {
   --color-color-5: var(--color-5);
 
   /* Variables de header */
-  --color-background-header: var(--background-header);
   --color-header-primary: var(--header-primary);
   --color-header-primary-light: var(--header-primary-light);
 

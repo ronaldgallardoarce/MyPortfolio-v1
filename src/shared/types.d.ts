@@ -1,6 +1,6 @@
 interface NavItem {
     id: number | string
-    icon: React.ReactNode
+    icon: React.ElementType
     label: string
     href: string
     gradient: string

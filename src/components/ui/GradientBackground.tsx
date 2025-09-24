@@ -113,6 +113,7 @@ const GradientBackground = () => {
                         x2="1054.08"
                         y2="1184.85"
                         gradientUnits="userSpaceOnUse"
+                        className="hidden sm:block"
                     >
                         <stop stopColor="var(--foreground)" />
                         <stop offset="0.578125" stopColor="var(--header-primary-light)" />
