@@ -23,7 +23,7 @@ const MainLayout = () => {
                 height={45}
                 className={cn(
                     "[mask-image:radial-gradient(2000px_circle_at_bottom_left,transparent,white)]",
-                    "w-full min-h-screen fixed opacity-60",
+                    "w-full min-h-screen fixed sm:dark:opacity-60",
                 )}
             />
             <Header />
